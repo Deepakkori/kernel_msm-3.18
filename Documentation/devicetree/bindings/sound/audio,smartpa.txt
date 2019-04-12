@@ -1,0 +1,19 @@
+SmartPA Speaker Protection
+
+Required properties:
+ - compatible: "audio,smartpa"
+ - reg: address of the smartpa amplifier
+ - reset-gpio: GPIO for the reset pin
+ - vdd-supply: core voltage supply
+
+Example:
+                smartpa@34 {
+                        compatible = "audio,smartpa";
+                        reg = <0x34>;
+                        nxp,tfa_max-vol-steps = <0x01>;
+                        reset-gpio = <&msm_gpio 99 0x00>;
+                        irq-gpio = <&msm_gpio 110 0x00>;
+                        foursemi,fs-dev = "left";
+                        vdd-supply = <&pm8909_l5>;
+                        status = "okay";
+                };
